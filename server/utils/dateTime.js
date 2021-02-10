@@ -1,6 +1,6 @@
 /************************************************************************
 *	@fileOverview Date Time Utilities(BASED on MOMENTJS) For Nodejs       *
-* @author <a href="mailto:sharmachandresh5252@gmail.com">Chandresh</a> *
+* @author *Chandresh*
 * @version 0.0.2                                                        *
 *************************************************************************/
 

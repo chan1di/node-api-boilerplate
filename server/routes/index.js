@@ -18,8 +18,9 @@ module.exports=function(app) {
 	app.get("/testConnection", function(req,res) {
 		res.send({'success':true,'message':'Successfully Connected!'})
 	});
-
+	app.post("/login", control.login);
 	app.post("/register", control.register);
+	app.get("/getUser", control.getUser);
 	app.post("/addtodo", control.addtodo);
 	app.get("/gettodo", commonUtils.isLoggedIn, control.gettodo);
 	app.put("/updatetodo", control.updatetodo);

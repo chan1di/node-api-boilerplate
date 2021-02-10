@@ -30,6 +30,19 @@ async function gettodo(req,res){
   }
 }
 
+async function login(req,res){
+  
+  try{
+    let getUser = await User.findOne({
+      email: req.body.email
+    }).lean().exec();
+    console.log(getUser,'....');
+    res.send({'success':true,'msg':'Listed ToDo!','data':getUser});
+  } catch(error){
+    res.status(500).send({'success':false, 'msg':'Error! Getting ToDo List', 'error': error});
+  }
+}
+
 //3. Adding ToDo
 async function addtodo(req,res){
   try{
@@ -105,11 +118,24 @@ async function register(req, res){
   }
 }
 
+async function getUser(req,res){
+  try{
+    let getUser = await User.findOne({
+      email: req.body.email
+    }).lean().exec();
+    res.send({'success':true,'msg':'Listed ToDo!','data':getUser});
+  } catch(error){
+    res.status(500).send({'success':false, 'msg':'Error! Getting ToDo List', 'error': error});
+  }
+}
+
 module.exports = {
     todo,       //1
     gettodo,    //2
     addtodo,    //3
     updatetodo, //4
     deletetodo,  //5,
-    register     //6
+    register,    //6
+    login,       //7,
+    getUser      //8
 };
